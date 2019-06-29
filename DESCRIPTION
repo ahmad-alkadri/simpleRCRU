@@ -1,0 +1,16 @@
+Package: simpleRCRU
+Type: Package
+Title: Simple R package for extracting climate information from CRU datasets
+Version: 0.1.0
+Authors@R: person("Ahmad","Alkadri",email = "ahmad.alkadri@outlook.com", role = c("aut","cre"))
+Maintainer: Ahmad Alkadri <ahmad.alkadri@outlook.com>
+Description: simpleRCRU helps you obtaining climate information, 
+    such as temperature, precipitation, 
+    for any given place from any given time measured within the CRU dataset,
+    in a simple and less painful way possible.
+Imports: raster,ncdf4
+Depends: R (>= 3.0.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
