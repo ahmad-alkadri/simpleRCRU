@@ -10,13 +10,13 @@ possible.
 
 ## Background
 
-In 2017, during my internship with CIFOR (Center for International
-Forest Research), I was tasked to obtain the climate data from CRU
-datasets for several regions in Kalimantan island, Indonesia. I wasn’t
-very familiar with CRU, nor with packages such as *raster* or *ncdf4*,
-but I was curious. It took me days to finally got the hang of it, and
-about hours to finally wrote the one function that I included here:
-*extractcru()*.
+In 2017, during my internship with [CIFOR (Center for International
+Forestry Research)](http://www.cifor.org), I was tasked to obtain the
+climate data from CRU datasets for several regions in Kalimantan island,
+Indonesia. I wasn’t very familiar with CRU, nor with packages such as
+*raster* or *ncdf4*, but I was curious. It took me days to finally got
+the hang of it, and about hours to finally wrote the one function that I
+included here: *extractcru()*.
 
 ## Methods
 
