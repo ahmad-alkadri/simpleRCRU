@@ -20,7 +20,7 @@
 #' var <- "tmp"
 #' lon <- 2.4
 #' lat <- 48.9
-#' datres <- extractcru(file = "cru_ts4.02.1901.2017.tmp.dat.nc", lat = 48.9, lon = 2.4, var = "tmp", month = "December", year = 2010)
+#' datres <- extractcru(file, lon, lat, var, year, month)
 
 extractcru <- function(file, lon, lat, var, year, month){
 
@@ -78,7 +78,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
       if(month %in% Months_num & year %in% years) {
 
-        return(subset(subset(tmp.sites, (Month_num == month & Year == year)), select = -c(Month_num, date)))
+        tmp.res <- subset(subset(tmp.sites, (Month_num == month & Year == year)), select = -c(Month, date))
+
+        row.names(tmp.res) <- c(1:nrow(tmp.res))
+
+        return(tmp.res)
 
       } else {
 
@@ -90,7 +94,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
       if(month %in% Months & year %in% years) {
 
-        return(subset(subset(tmp.sites, (Month == month & Year == year)), select = -c(Month_num, date)))
+        tmp.res <- (subset(subset(tmp.sites, (Month == month & Year == year)), select = -c(Month, date)))
+
+        row.names(tmp.res) <- c(1:nrow(tmp.res))
+
+        return(tmp.res)
 
       } else {
 
@@ -108,7 +116,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
         if(month %in% Months) {
 
-          return(subset(subset(tmp.sites, Month == month), select = -c(Month_num, date)))
+          tmp.res <- (subset(subset(tmp.sites, Month == month), select = -c(Month_num, date)))
+
+          row.names(tmp.res) <- c(1:nrow(tmp.res))
+
+          return(tmp.res)
 
         } else {
 
@@ -122,7 +134,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
           if(month %in% Months_num) {
 
-            return(subset(subset(tmp.sites, Month_num == month), select = -c(Month_num, date)))
+            tmp.res <- (subset(subset(tmp.sites, Month_num == month), select = -c(Month_num, date)))
+
+            row.names(tmp.res) <- c(1:nrow(tmp.res))
+
+            return(tmp.res)
 
           } else {
 
@@ -140,7 +156,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
         if(year %in% years) {
 
-          return(subset(subset(tmp.sites, Year == year), select = -c(Month_num, date)))
+          tmp.res <- (subset(subset(tmp.sites, Year == year), select = -c(Month_num, date)))
+
+          row.names(tmp.res) <- c(1:nrow(tmp.res))
+
+          return(tmp.res)
 
         } else {
 
@@ -150,7 +170,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
       } else {
 
-        return(subset(tmp.sites, select = -c(Month_num,date)))
+        tmp.res <- (subset(tmp.sites, select = -c(Month_num,date)))
+
+        row.names(tmp.res) <- c(1:nrow(tmp.res))
+
+        return(tmp.res)
 
       }
 

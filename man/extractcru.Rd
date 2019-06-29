@@ -32,5 +32,5 @@ file <- "cru_ts4.02.1901.2017.tmp.dat.nc"
 var <- "tmp"
 lon <- 2.4
 lat <- 48.9
-datres <- extractcru(file = "cru_ts4.02.1901.2017.tmp.dat.nc", lat = 48.9, lon = 2.4, var = "tmp", month = "December", year = 2010)
+datres <- extractcru(file, lon, lat, var, year, month)
 }

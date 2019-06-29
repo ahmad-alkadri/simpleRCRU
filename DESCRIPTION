@@ -9,6 +9,7 @@ Description: simpleRCRU helps you obtaining climate information,
     for any given place from any given time measured within the CRU dataset,
     in a simple and less painful way possible.
 Imports: raster,ncdf4
+Suggests: ggplot2
 Depends: R (>= 3.0.0)
 License: GPL-3
 Encoding: UTF-8
