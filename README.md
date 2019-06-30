@@ -20,14 +20,14 @@ included here: *extractcru()*.
 
 ## Methods
 
-The reason why I wrote it is simple: working with *raster* for obtaining
-the climate data from CRU datasets is simply not simple at all. Sure,
-*raster* is very powerful for working with CRU datasets, but I only
-wanted to obtain some simple climate data. The kind of information that
-I needed was just, for example, the monthly **precipitation** data for
-Cilacap (a little town in Indonesia where I grew up, more on that
-later), during the year **1991**. With *extractcru* function, all I
-needed to do is typing:
+The reason why I wrote this package (or, back then, these functions) is
+simple: working with *raster* for obtaining the climate data from CRU
+datasets is simply not simple at all. Sure, *raster* is very powerful
+for working with CRU datasets, but I only wanted to obtain some simple
+climate data. The kind of information that I needed was just, for
+example, the monthly **precipitation** data for Cilacap (a little town
+in Indonesia where I grew up, more on that later), during the year
+**1991**. With *extractcru* function, all I needed to do is typing:
 
 ``` r
 library(simpleRCRU)
@@ -73,17 +73,8 @@ var <- "pre" #Variable code for precipitation
 lon <- 109.01 #Longitude of Cilacap town
 lat <- -7.74 #Latitude of Cilacap town
 years <- 1991:2017 #Requested years
-for (i in 1:length(years)) {
-  
-  if(i == 1){
-    datres2 <- extractcru(file, lon, lat, var, year = years[1])
-  } else {
-    dattemp <- extractcru(file, lon, lat, var, year = years[i])
-    datres2 <- rbind(datres2,dattemp)
-    rm(dattemp)
-  }
-  
-}
+
+datres2 <- extractcru(file, lon, lat, var, year = years)
 
 library(ggplot2) #Loading ggplot2 package, easier to work with boxplot
 ggplot(data = datres2, aes(x = Year, y = pre, group = Year))+geom_boxplot()+

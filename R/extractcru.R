@@ -76,9 +76,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
     if(class(month) == "numeric"){
 
-      if(month %in% Months_num & year %in% years) {
+      if(all(month %in% Months_num) & all(year %in% years)) {
 
-        tmp.res <- subset(subset(tmp.sites, (Month_num == month & Year == year)), select = -c(Month, date))
+        tmp.res <- subset(tmp.sites[tmp.sites$Year %in% year & tmp.sites$Month_num %in% month,], select = -c(Month_num,date))
+
+        #tmp.res <- subset(subset(tmp.sites, (Month_num == month & Year == year)), select = -c(Month, date))
 
         row.names(tmp.res) <- c(1:nrow(tmp.res))
 
@@ -92,9 +94,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
     } else {
 
-      if(month %in% Months & year %in% years) {
+      if(all(month %in% Months) & all(year %in% years)) {
 
-        tmp.res <- (subset(subset(tmp.sites, (Month == month & Year == year)), select = -c(Month, date)))
+        tmp.res <- subset(tmp.sites[tmp.sites$Year %in% year & tmp.sites$Month %in% month,], select = -c(Month_num,date))
+
+        #tmp.res <- (subset(subset(tmp.sites, (Month == month & Year == year)), select = -c(Month, date)))
 
         row.names(tmp.res) <- c(1:nrow(tmp.res))
 
@@ -114,9 +118,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
       if(class(month) == "character"){
 
-        if(month %in% Months) {
+        if(all(month %in% Months)) {
 
-          tmp.res <- (subset(subset(tmp.sites, Month == month), select = -c(Month_num, date)))
+          tmp.res <- subset((tmp.sites[tmp.sites$Month %in% month,]), select = -c(Month_num,date))
+
+          #tmp.res <- (subset(subset(tmp.sites, Month == month), select = -c(Month_num, date)))
 
           row.names(tmp.res) <- c(1:nrow(tmp.res))
 
@@ -132,9 +138,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
         if(class(month) == "numeric"){
 
-          if(month %in% Months_num) {
+          if(all(month %in% Months_num)) {
 
-            tmp.res <- (subset(subset(tmp.sites, Month_num == month), select = -c(Month_num, date)))
+            tmp.res <- subset(tmp.sites[tmp.sites$Month %in% month,], select = -c(Month_num,date))
+
+            #tmp.res <- (subset(subset(tmp.sites, Month_num == month), select = -c(Month_num, date)))
 
             row.names(tmp.res) <- c(1:nrow(tmp.res))
 
@@ -154,9 +162,11 @@ extractcru <- function(file, lon, lat, var, year, month){
 
       if(missing(month) == TRUE & missing(year) == FALSE){
 
-        if(year %in% years) {
+        if(all(year %in% years)) {
 
-          tmp.res <- (subset(subset(tmp.sites, Year == year), select = -c(Month_num, date)))
+          tmp.res <- subset(tmp.sites[tmp.sites$Year %in% year,], select = -c(Month_num,date))
+
+          #tmp.res <- (subset(subset(tmp.sites, Year == year), select = -c(Month_num, date)))
 
           row.names(tmp.res) <- c(1:nrow(tmp.res))
 
@@ -170,7 +180,9 @@ extractcru <- function(file, lon, lat, var, year, month){
 
       } else {
 
-        tmp.res <- (subset(tmp.sites, select = -c(Month_num,date)))
+        tmp.res <- subset(tmp.sites, select = -c(Month_num,date))
+
+        #tmp.res <- (subset(tmp.sites, select = -c(Month_num,date)))
 
         row.names(tmp.res) <- c(1:nrow(tmp.res))
 
