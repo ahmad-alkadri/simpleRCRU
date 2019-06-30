@@ -61,7 +61,13 @@ print(datres)
 
 Next, we can plot this very easily, with:
 
-![](README_files/figure-gfm/pressure-1.png)<!-- -->
+``` r
+datres$Monthnum <- c(1:12)
+plot(x = datres$Monthnum, y = datres$pre, xlab = "Month", ylab = "Monthly precipitation (mm)")
+lines(x = datres$Monthnum, y = datres$pre)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 Now let’s say that we’d like to visualize the yearly precipitations in
 the town of Cilacap from 1991 to 2017. For that, it’d be better to use
@@ -81,7 +87,7 @@ ggplot(data = datres2, aes(x = Year, y = pre, group = Year))+geom_boxplot()+
   xlab("Year")+ylab("Precipitations (mm)")+theme_bw()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 And finally, to export the result, for example the precipitation data
 from 1991 to 2017 above, we simply write:

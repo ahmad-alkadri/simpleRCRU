@@ -24,7 +24,7 @@ The kind of information that I needed was just, for example, the monthly **preci
 With *extractcru* function, all I needed to do is typing:
 
 
-```{r cars}
+```{r}
 library(simpleRCRU)
 file = "../crudata/cru_ts4.02.1901.2017.pre.dat.nc" #Precipitation dataset from CRU
 year <- 1991 #Requested year
@@ -37,7 +37,7 @@ print(datres)
 
 Next, we can plot this very easily, with:
 
-```{r pressure, echo=FALSE}
+```{r}
 datres$Monthnum <- c(1:12)
 plot(x = datres$Monthnum, y = datres$pre, xlab = "Month", ylab = "Monthly precipitation (mm)")
 lines(x = datres$Monthnum, y = datres$pre)
