@@ -88,7 +88,7 @@ extractareacru <- function(file, lonmin, lonmax, latmin, latmax, var, year, mont
 
   } else {
 
-    print("ERROR: area extraction only works for a combination of 1 year and 1 month, such as: September 2012")
+    print("ERROR: area extraction only works for a combination of one year and one month, such as: September 2012")
 
   }
 
