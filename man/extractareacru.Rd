@@ -7,7 +7,7 @@
 extractareacru(file, lonmin, lonmax, latmin, latmax, var, year, month, precision)
 }
 \arguments{
-\item{file}{The CRU dataset file, usually with "dat.nc" extension}
+\item{file}{The CRU dataset file, usually with ".dat.nc" extension}
 
 \item{lonmin}{The minimum longitude value of the rectangular area}
 
@@ -40,16 +40,19 @@ year <- 2010
 month <- "December"
 
 # Selected area: a rectangular region of the Central Java island, Indonesia
-lonmin = 109.0
-lonmax = 109.2
-latmin = -7.4
-latmax = -6.9
+lonmin <- 109.0
+lonmax <- 109.2
+latmin <- -7.4
+latmax <- -6.9
 
 # Climate parameter
-var = "pre"
+var <- "pre"
+
+# CRU dataset
+file <- "cru_ts4.02.1901.2017.tmp.dat.nc"
 
 # Coordinate precision of 1 digit behind decimal
-precision = 1
+precision <- 1
 
 # Matrix with results
 matReg <- extractareacru(file, lonmin, lonmax, latmin, latmax,
