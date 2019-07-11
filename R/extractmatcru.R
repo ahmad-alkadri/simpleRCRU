@@ -125,11 +125,13 @@ extractareacru <- function(file, lonmin, lonmax, latmin, latmax, var, year, mont
 
         rm(sitecoord) ; rm(presites_target)
 
+        siteres <- dplyr::arrange(siteres, lat)
+
+        siteres <- dplyr::arrange(siteres, lon)
+
         matres <- reshape2::dcast(siteres, lat ~ lon)
 
         rm(siteres)
-
-        matres <- dplyr::arrange(matres,desc(lat))
 
         rownames(matres) <- matres$lat
 
