@@ -4,7 +4,8 @@
 \alias{extractareacru}
 \title{Function for extracting the climate data of an area from CRU datasets}
 \usage{
-extractareacru(file, lonmin, lonmax, latmin, latmax, var, year, month, precision)
+extractareacru(file, lonmin, lonmax,
+latmin, latmax, var, year, month, precision)
 }
 \arguments{
 \item{file}{The CRU dataset file, usually with ".dat.nc" extension}
@@ -20,9 +21,9 @@ extractareacru(file, lonmin, lonmax, latmin, latmax, var, year, month, precision
 \item{var}{The variable from the CRU dataset that we would like to obtain,
 could be "tmp" for temperature, "pre" for precipitation, and so on.}
 
-\item{year}{A single given year, must be within the span measured in the CRU dataset}
+\item{year}{A single given year, must be within the span measured in the CRU dataset.}
 
-\item{month}{A single given month, must be from the Gregorian calendar and can be written either in English ("January", "February", etc.) or number (1, 2, 3, etc.).}
+\item{month}{A given month, must be from the Gregorian calendar and can be written either in English ("January", "February", etc.) or number (1, 2, 3, etc.).}
 }
 \value{
 A matrix with the desired climate values (precipitation, temperature, etc.) of
@@ -30,7 +31,7 @@ the rectangular region on the requested year and month. Rows refer to latitude a
 refer to longitude.
 }
 \description{
-A wrapper for extractcru() function,
+A wrapper for raster() function,
 useful for extracting climate date of
 a rectangular area from CRU datasets.
 }
@@ -39,17 +40,18 @@ a rectangular area from CRU datasets.
 year <- 2010
 month <- "December"
 
-# Selected area: a rectangular region of the Central Java island, Indonesia
-lonmin <- 109.0
-lonmax <- 109.2
-latmin <- -7.4
-latmax <- -6.9
+# Selected area: a rectangular region
+# from the Central Java island, Indonesia
+lonmin <- 104.0
+lonmax <- 118.0
+latmin <- -9.0
+latmax <- -5.0
 
 # Climate parameter
 var <- "pre"
 
 # CRU dataset
-file <- "cru_ts4.02.1901.2017.tmp.dat.nc"
+file <- "cru_ts4.02.1901.2017.pre.dat.nc"
 
 # Coordinate precision of 1 digit behind decimal
 precision <- 1

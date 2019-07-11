@@ -1,6 +1,10 @@
 #' Function for extracting climate data from CRU datasets
 #'
-#' @description A wrapper for raster() function, useful for extracting climate date from CRU datasets in a very straightforward way. All you need to do is put in the CRU dataset file, choose the variable that you want, enter the year and the month, and you will get a dataframe with the desired variable for the given time.
+#' @description A wrapper for raster() function,
+#' useful for extracting climate date from CRU datasets in a very straightforward way.
+#' All you need to do is put in the CRU dataset file, choose the variable that you want,
+#' enter the year and the month, and you will get a dataframe
+#' with the desired variable for the given time.
 #'
 #' @usage extractcru(file, lon, lat, var, year, month)
 #'

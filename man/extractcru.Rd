@@ -23,7 +23,11 @@ extractcru(file, lon, lat, var, year, month)
 A dataframe with the desired climate parameter (precipitation, temperature, etc.) of a particular place with the given latitude and longitude on the requested year and month.
 }
 \description{
-A wrapper for raster() function, useful for extracting climate date from CRU datasets in a very straightforward way. All you need to do is put in the CRU dataset file, choose the variable that you want, enter the year and the month, and you will get a dataframe with the desired variable for the given time.
+A wrapper for raster() function,
+useful for extracting climate date from CRU datasets in a very straightforward way.
+All you need to do is put in the CRU dataset file, choose the variable that you want,
+enter the year and the month, and you will get a dataframe
+with the desired variable for the given time.
 }
 \examples{
 year <- 2010
