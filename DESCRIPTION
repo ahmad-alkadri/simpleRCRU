@@ -1,7 +1,7 @@
 Package: simpleRCRU
 Type: Package
 Title: Simple R package for extracting climate information from CRU datasets
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Ahmad","Alkadri",email = "ahmad.alkadri@outlook.com", role = c("aut","cre"))
 Maintainer: Ahmad Alkadri <ahmad.alkadri@outlook.com>
 Description: simpleRCRU helps you obtaining climate information, 
