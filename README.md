@@ -34,7 +34,56 @@ in Indonesia where I grew up, more on that later), during the year
 
 ``` r
 library(simpleRCRU)
-file = "../crudata/cru_ts4.02.1901.2017.pre.dat.nc" #Precipitation dataset from CRU
+library(R.utils)
+```
+
+    ## Loading required package: R.oo
+
+    ## Loading required package: R.methodsS3
+
+    ## R.methodsS3 v1.7.1 (2016-02-15) successfully loaded. See ?R.methodsS3 for help.
+
+    ## Registered S3 method overwritten by 'R.oo':
+    ##   method        from       
+    ##   throw.default R.methodsS3
+
+    ## R.oo v1.22.0 (2018-04-21) successfully loaded. See ?R.oo for help.
+
+    ## 
+    ## Attaching package: 'R.oo'
+
+    ## The following objects are masked from 'package:methods':
+    ## 
+    ##     getClasses, getMethods
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     attach, detach, gc, load, save
+
+    ## R.utils v2.9.0 successfully loaded. See ?R.utils for help.
+
+    ## 
+    ## Attaching package: 'R.utils'
+
+    ## The following object is masked from 'package:utils':
+    ## 
+    ##     timestamp
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     cat, commandArgs, getOption, inherits, isOpen, nullfile,
+    ##     parse, warnings
+
+``` r
+# Download the climate dataset
+download.file("https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.02/cruts.1811131722.v4.02/pre/cru_ts4.02.1991.2000.pre.dat.nc.gz",
+              destfile = "cru_ts4.02.1991.2000.pre.dat.nc.gz")
+
+# Unzipping the dataset
+gunzip("cru_ts4.02.1991.2000.pre.dat.nc.gz",
+       remove = FALSE, overwrite = TRUE)
+
+file <- ("cru_ts4.02.1991.2000.pre.dat.nc")
 year <- 1991 #Requested year
 var <- "pre" #Variable code for precipitation
 lon <- 109.01 #Longitude of Cilacap town
@@ -43,6 +92,12 @@ datres <- extractcru(file, lon, lat, var, year)
 ```
 
     ## Loading required namespace: ncdf4
+
+``` r
+file.remove("cru_ts4.02.1991.2000.pre.dat.nc")
+```
+
+    ## [1] TRUE
 
 ``` r
 print(datres)
@@ -73,18 +128,25 @@ lines(x = datres$Monthnum, y = datres$pre)
 ![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 Now let’s say that we’d like to visualize the yearly precipitations in
-the town of Cilacap from 1991 to 2017. For that, it’d be better to use
+the town of Cilacap from 1991 to 2000 For that, it’d be better to use
 boxplot. To do this, we simply write:
 
 ``` r
-file = "../crudata/cru_ts4.02.1901.2017.pre.dat.nc" #Precipitation dataset from CRU
+gunzip("cru_ts4.02.1991.2000.pre.dat.nc.gz",
+       remove = FALSE, overwrite = TRUE)
+file <- "cru_ts4.02.1991.2000.pre.dat.nc" #Precipitation dataset from CRU
 var <- "pre" #Variable code for precipitation
 lon <- 109.01 #Longitude of Cilacap town
 lat <- -7.74 #Latitude of Cilacap town
-years <- 1991:2017 #Requested years
+years <- 1991:2000 #Requested years
 
 datres2 <- extractcru(file, lon, lat, var, year = years)
+file.remove("cru_ts4.02.1991.2000.pre.dat.nc")
+```
 
+    ## [1] TRUE
+
+``` r
 library(ggplot2) #Loading ggplot2 package, easier to work with boxplot
 ggplot(data = datres2, aes(x = Year, y = pre, group = Year))+geom_boxplot()+
   xlab("Year")+ylab("Precipitations (mm)")+theme_bw()
@@ -93,10 +155,10 @@ ggplot(data = datres2, aes(x = Year, y = pre, group = Year))+geom_boxplot()+
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 And finally, to export the result, for example the precipitation data
-from 1991 to 2017 above, we simply write:
+from 1991 to 2000 above, we simply write:
 
 ``` r
-write.csv(datres2, file = "pre_1991_2017_Cilacap.csv")
+write.csv(datres2, file = "pre_1991_2000_Cilacap.csv")
 ```
 
 ## Future Works
