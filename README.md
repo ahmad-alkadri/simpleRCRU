@@ -1,6 +1,9 @@
 simpleRCRU
 ================
 
+[![Build
+Status](https://travis-ci.org/ahmad-alkadri/simpleRCRU.svg?branch=master)](https://travis-ci.org/ahmad-alkadri/simpleRCRU)
+
 Just like its name implies, this package aims to help working with CRU
 datasets in a simpler, or more straightforward way. To achieve this,
 **simpleRCRU** wraps around two primary packages: namely, *ncdf4* and
