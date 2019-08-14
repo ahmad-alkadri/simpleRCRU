@@ -26,7 +26,7 @@ The kind of information that I needed was just, for example, the monthly **preci
 With *extractcru* function, all I needed to do is typing:
 
 
-```{r}
+```{r, message=FALSE}
 library(simpleRCRU)
 library(R.utils)
 

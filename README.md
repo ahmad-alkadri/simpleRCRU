@@ -35,46 +35,7 @@ in Indonesia where I grew up, more on that later), during the year
 ``` r
 library(simpleRCRU)
 library(R.utils)
-```
 
-    ## Loading required package: R.oo
-
-    ## Loading required package: R.methodsS3
-
-    ## R.methodsS3 v1.7.1 (2016-02-15) successfully loaded. See ?R.methodsS3 for help.
-
-    ## Registered S3 method overwritten by 'R.oo':
-    ##   method        from       
-    ##   throw.default R.methodsS3
-
-    ## R.oo v1.22.0 (2018-04-21) successfully loaded. See ?R.oo for help.
-
-    ## 
-    ## Attaching package: 'R.oo'
-
-    ## The following objects are masked from 'package:methods':
-    ## 
-    ##     getClasses, getMethods
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     attach, detach, gc, load, save
-
-    ## R.utils v2.9.0 successfully loaded. See ?R.utils for help.
-
-    ## 
-    ## Attaching package: 'R.utils'
-
-    ## The following object is masked from 'package:utils':
-    ## 
-    ##     timestamp
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     cat, commandArgs, getOption, inherits, isOpen, nullfile,
-    ##     parse, warnings
-
-``` r
 # Download the climate dataset
 download.file("https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.02/cruts.1811131722.v4.02/pre/cru_ts4.02.1991.2000.pre.dat.nc.gz",
               destfile = "cru_ts4.02.1991.2000.pre.dat.nc.gz")
@@ -89,11 +50,6 @@ var <- "pre" #Variable code for precipitation
 lon <- 109.01 #Longitude of Cilacap town
 lat <- -7.74 #Latitude of Cilacap town
 datres <- extractcru(file, lon, lat, var, year)
-```
-
-    ## Loading required namespace: ncdf4
-
-``` r
 file.remove("cru_ts4.02.1991.2000.pre.dat.nc")
 ```
 
