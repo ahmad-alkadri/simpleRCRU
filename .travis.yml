@@ -1,4 +1,6 @@
 language: r
 
+warnings_are_errors: false
+
 before_install:
   - sudo apt-get install libnetcdf-dev
