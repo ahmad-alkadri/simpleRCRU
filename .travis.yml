@@ -1,4 +1,4 @@
 language: r
 
 before_install:
-  - sudo apt-get install r-cran-ncdf4
+  - sudo apt-get install libnetcdf-dev
