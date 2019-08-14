@@ -30,11 +30,31 @@ enter the year and the month, and you will get a dataframe
 with the desired variable for the given time.
 }
 \examples{
-year <- 2010
+library(simpleRCRU)
+library(R.utils)
+
+# Download the climate dataset
+download.file("https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.02/cruts.1811131722.v4.02/pre/cru_ts4.02.1991.2000.pre.dat.nc.gz",
+              destfile = "cru_ts4.02.1991.2000.pre.dat.nc.gz")
+
+# Unzipping the dataset
+gunzip("cru_ts4.02.1991.2000.pre.dat.nc.gz",
+remove = TRUE, overwrite = TRUE)
+
+year <- 2000
+
 month <- "December"
-file <- "cru_ts4.02.1901.2017.tmp.dat.nc"
-var <- "tmp"
+
+file <- ("cru_ts4.02.1991.2000.pre.dat.nc")
+
+# Climate parameter (precipitation)
+var <- "pre"
+
 lon <- 2.4
+
 lat <- 48.9
+
 datres <- extractcru(file, lon, lat, var, year, month)
+
+file.remove("cru_ts4.02.1991.2000.pre.dat.nc")
 }

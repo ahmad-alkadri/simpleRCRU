@@ -30,7 +30,7 @@
 #'
 #' @examples
 #' # Selected time
-#' year <- 2010
+#' year <- 2000
 #' month <- "December"
 #'
 #' # Selected area: a rectangular region
@@ -40,11 +40,21 @@
 #' latmin <- -9.0
 #' latmax <- -5.0
 #'
-#' # Climate parameter
+#' # Climate parameter (precipitation)
 #' var <- "pre"
 #'
 #' # CRU dataset
-#' file <- "cru_ts4.02.1901.2017.pre.dat.nc"
+#' library(simpleRCRU)
+#' library(R.utils)
+#'
+#' # Download the climate dataset
+#' download.file("https://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.02/cruts.1811131722.v4.02/pre/cru_ts4.02.1991.2000.pre.dat.nc.gz",
+#'               destfile = "cru_ts4.02.1991.2000.pre.dat.nc.gz")
+#' # Unzipping the dataset
+#' gunzip("cru_ts4.02.1991.2000.pre.dat.nc.gz",
+#' remove = TRUE, overwrite = TRUE)
+#'
+#' file <- ("cru_ts4.02.1991.2000.pre.dat.nc")
 #'
 #' # Coordinate precision of 1 digit behind decimal
 #' precision <- 1
@@ -52,6 +62,8 @@
 #' # Matrix with results
 #' matReg <- extractareacru(file, lonmin, lonmax, latmin, latmax,
 #'           var, year, month, precision)
+#'
+#' file.remove("cru_ts4.02.1991.2000.pre.dat.nc")
 
 extractareacru <- function(file, lonmin, lonmax, latmin, latmax, var, year, month, precision){
 
